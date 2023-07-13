@@ -6,7 +6,7 @@
  * put c function
  *
  * always return 0
- */
+*/
 
 int main(void)
 {
