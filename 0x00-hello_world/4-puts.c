@@ -1,15 +1,11 @@
 #include <stdio.h>
 
-/** 
- * main - Entry point 
- *
- * Description: A c prgram that prints with  put function
- *
- * Return: Always 0 (Success)
-*/
-
+/**
+ * main - display  "Programming is like building a multilingual puzzle"
+ * Return: 0 and exit the program
+ */
 int main(void)
 {
-       	puts("\"Programming is like building a multilingual puzzle");
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
