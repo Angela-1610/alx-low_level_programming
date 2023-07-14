@@ -7,15 +7,11 @@
 int main(void)
 {
 	int i;
-	char x;
+	char x[16] = "0123456789abcdef";
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 16; i++)
 	{
-		putchar(i);
-	}
-	for (x = 'a'; x <= 'f'; x++)
-	{
-		putchar(x);
+		putchar(x[i]);
 	}
 	putchar('\n');
 
