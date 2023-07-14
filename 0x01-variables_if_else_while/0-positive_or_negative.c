@@ -19,11 +19,11 @@ int main(void)
 	}
 	else if (n == 0)
 	{
-		printf("is zero %d\n", n);
+		printf("%d is zero\n", n);
 	}
 	else
 	{
-		printf("is negative %d\n", n);
+		printf("%d is negative\n", n);
 	}
 	return (0);
 }
