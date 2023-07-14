@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints the alphabet in lowercase, followed by a new line
+ * main - Prints the alphabet without q and e
  * Return: return 0 and exit the program
 */
 
@@ -11,7 +11,14 @@ int main(void)
 
 	for (x = 'a'; x <= 'z'; x++)
 	{
-		putchar(x);
+		if (x == 'q' || x == 'e')
+		{
+			continue;
+		}
+		else
+		{
+			putchar(x);
+		}
 	}
 	putchar('\n');
 
