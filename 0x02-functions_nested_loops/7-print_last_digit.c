@@ -4,7 +4,7 @@
 /**
  * print_last_digit - Print last digit of a number
  *
- * @a: Type int a and @b type int b
+ * @n: Type int a and @b type int b
  *
  * Return: the value of the last digit
  */
@@ -16,13 +16,13 @@ int print_last_digit(int n)
 	if (n >= 0)
 	{
 		x = n % 10;
-		_putchar(x);
+		_putchar(x + '0');
 		return (x);
 	}
 	else
 	{
 		x = -1 * (n % 10);
-		_putchar(x);
+		_putchar(x + '0');
 		return (x);
 	}
 }
