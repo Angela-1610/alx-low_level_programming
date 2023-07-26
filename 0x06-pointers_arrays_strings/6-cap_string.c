@@ -25,7 +25,7 @@ int islower(char s)
 
 int otherchar(char s)
 {
-	char arr[12] = " \t\n,;.!?\"(){} ";
+	char arr[12] = " \t\n,.!?\"(){} ";
 	int i;
 
 	for (i = 0; i < 12; i++)
@@ -34,9 +34,8 @@ int otherchar(char s)
 		{
 			return (1);
 		}
-		else
-			return (0);
 	}
+	return (0);
 }
 
 /**
@@ -49,12 +48,19 @@ int otherchar(char s)
 char *cap_string(char *s)
 {
 	char*ptr = s;
+	int z = 1;
+
 	while (*s)
 	{
-		if (islower(*s) && otherchar(*s))
+		if (otherchar(*s))
+			z = 1;
+		else if (islower(*s) && z)
 		{
 			*s -= 32;
+			z = 0;
 		}
+		else
+			z = 0;
 		s++;
 	}
 
