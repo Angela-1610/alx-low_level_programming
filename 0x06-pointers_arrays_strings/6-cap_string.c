@@ -10,7 +10,7 @@
 
 int islower(char s)
 {
-	if (s > 'a' && s < 'z')
+	if (s >= 'a' && s <= 'z')
 		return (1);
 	else
 		return (0);
@@ -48,6 +48,7 @@ int otherchar(char s)
 
 char *cap_string(char *s)
 {
+	char*ptr = s;
 	while (*s)
 	{
 		if (islower(*s) && otherchar(*s))
@@ -57,5 +58,5 @@ char *cap_string(char *s)
 		s++;
 	}
 
-	return (s);
+	return (ptr);
 }
