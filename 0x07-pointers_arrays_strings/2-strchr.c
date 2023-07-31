@@ -5,24 +5,17 @@
  * _strchr - Locates a character in a string
  * @s: type char pointer
  * @c: type char memory area
- *
- * Return: a pointer if occur or null if not
-*/
-
+ * Return: NULL
+ */
 char *_strchr(char *s, char c)
 {
-	bool check = true;
-
 	while (*s != '\0')
 	{
 		if (*s == c)
-			check = true;
-		else
-			check = false;
+			return (s);
 		s++;
 	}
-
-	if (check == true)
+	if (*s == c)
 		return (s);
 	else
 		return (NULL);
