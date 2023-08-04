@@ -1,36 +1,36 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 /**
- * main -  program that adds positive numbers
- * @argc: size of array
- * @argv: array of arguments
- *
- * Return: zero if success
+ * main - prints all arguments received.
+ * @argc: type int argument
+ * @argv: type char argument of string.
+ * Return: if not receive 2 arg, rt error
  */
-
 int main(int argc, char *argv[])
 {
-	int result = 0;
-	int i;
-	int y = 0;
+	int x;
+	int y;
+	int add;
 
-	if (argc > 0)
+	(void)argv;
+	add = 0;
+	if (argc > 1)
 	{
-		for (i = 0; i <= argc - 1; i++)
+		for (x = 1; x < argc; x++)
 		{
-			result = result + atoi(argv[i]);
-			printf("%d\n", result);
-		}
-		if (*argv >= 'a' && *argv <= 'z')
-		{
-			printf("Error\n");
-			return (1);
+			for (y = 0; argv[x][y] != '\0'; y++)
+			{
+				if (!isdigit(argv[x][y]))
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+			add += atoi(argv[x]);
 		}
 	}
-	else
-	{
-		printf("%d\n", y);
-	}
-
+	printf("%d\n", add);
 	return (0);
 }
