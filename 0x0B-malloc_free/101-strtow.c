@@ -1,62 +1,126 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
+
+void mywstr(char **, char *);
+void cmyword(char **, char *, int, int, int);
 
 /**
- * count - function compute string length
- * @str: the string
- *
- * Return: number of length
- */
-
-int count(char *str)
-{
-	int i;
-	int len = 0;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		len = len + 1;
-	}
-
-	return (len);
-}
-
-/**
- * strtow - function that splits a string into words
- * @str: the string to split
- *
- * Return: pointer of words or null if fail
+ * strtow - a function that split a string to words.
+ * @str: the string to work on it.
+ * Return: a pointer of the splited words.
  */
 
 char **strtow(char *str)
 {
-	int index = 0;
-	int size = count(str);
-	int index2 = 0;
-	char **arr;
+	int i, wxwrflag, wlen;
+	char **words;
 
-	arr = (char **) malloc(size * sizeof(char));
-
-	if (arr == NULL)
-		return (NULL);
-
-	while (str[index])
+	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
 	{
-		if (str[index] == ' ')
-		{
-			index++;
-			value++;
-			index2++;
-		}
-		else
-		{
-			*(arr + index2) = (char *) malloc(index * sizeof(char));
-			*(arr + index2) = &str[index];
-		}
-		index++;
+		return (NULL);
 	}
-	**arr = '\0';
 
-	return (arr);
+
+	i = wxwrflag = wlen = 0;
+
+	while (str[i])
+
+	{
+		if (wxwrflag == 0 && str[i] != ' ')
+			wxwrflag = 1;
+
+		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
+
+		{
+			wxwrflag = 0;
+			wlen++;
+		}
+
+		i++;
+	}
+
+	wlen += wxwrflag == 1 ? 1 : 0;
+
+	if (wlen == 0)
+	{
+		return (NULL);
+	}
+
+
+	words = (char **)malloc(sizeof(char *) * (wlen + 1));
+
+	if (words == NULL)
+	{
+		return (NULL);
+	}
+
+	mywstr(words, str);
+	words[wlen] = NULL;
+	return (words);
+}
+
+/**
+ * mywstr - function that converts words into strings.
+ * @words: the words to work on it.
+ * @str: the string to work on it.
+ * Return: nothing.
+ */
+
+void mywstr(char **words, char *str)
+{
+	int i, j, wstart, wrflag;
+
+	i = j = wrflag = 0;
+
+	while (str[i])
+
+	{
+		if (wrflag == 0 && str[i] != ' ')
+
+		{
+			wstart = i;
+			wrflag = 1;
+		}
+
+		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
+
+		{
+			cmyword(words, str, wstart, i, j);
+			j++;
+			wrflag = 0;
+		}
+
+		i++;
+	}
+
+	if (wrflag == 1)
+	{
+		cmyword(words, str, wstart, i, j);
+	}
+
+}
+
+/**
+ * cmyword - creates a word from a string.
+ * @words: the words to insert to string.
+ * @str: the string to work on it.
+ * @start: the start position.
+ * @end: the stop position.
+ * @index: where to start inserting the new word.
+ * Return: nothing.
+ */
+
+void cmyword(char **words, char *str, int start, int end, int index)
+{
+	int i, j;
+
+	i = end - start;
+	words[index] = (char *)malloc(sizeof(char) * (i + 1));
+
+	for (j = 0; start < end; start++, j++)
+	{
+		words[index][j] = str[start];
+	}
+
+	words[index][j] = '\0';
 }
