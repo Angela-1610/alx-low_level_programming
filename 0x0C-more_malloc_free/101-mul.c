@@ -10,16 +10,29 @@
  */
 int main(int argc, char *argv[])
 {
-	int n1, n2, mul;
+	int mul, num1, num2;
 
 	if (argc != 3)
-		printf("Error\n");
-	else
 	{
-		n1 = atoi(argv[1]);
-		n2 = atoi(argv[2]);
-		mul = n1 * n2;
-		printf("%d\n", mul);
+		print("Error\n");
+		exit(98);
 	}
+	if (isdigit(num1))
+	{
+		print("Error\n");
+		exit(98);
+	}
+	if (isdigit(num2))
+	{
+		print("Error\n");
+		exit(98);
+	}
+
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	mul = num1 * num2;
+
+	print("%d\n", mul);
+
 	return (0);
 }
