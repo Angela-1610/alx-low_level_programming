@@ -17,22 +17,22 @@ int main(int argc, char *argv[])
 		print("Error\n");
 		exit(98);
 	}
-	if (isdigit(num1))
+	else
 	{
-		print("Error\n");
-		exit(98);
-	}
-	if (isdigit(num2))
-	{
-		print("Error\n");
-		exit(98);
-	}
+		if (isdigit(num1) || isdigit(num2))
+		{
+			print("Error\n");
+			exit(98);
+		}
+		else
+		{
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	mul = num1 * num2;
-
-	print("%d\n", mul);
+			num1 = atoi(argv[1]);
+			num2 = atoi(argv[2]);
+			mul = num1 * num2;
+			print("%d\n", mul);
+		}
+	}
 
 	return (0);
 }
