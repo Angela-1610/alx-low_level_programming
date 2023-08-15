@@ -13,8 +13,8 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (d)
 	{
-		d.name = n;
-		d.age = a;
-		d.owner = o;
+		d->name = n;
+		d->age = a;
+		d->owner = o;
 	}
 }
