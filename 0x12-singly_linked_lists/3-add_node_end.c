@@ -29,12 +29,18 @@ list_t *add_node_end(list_t **head, const char *str)
 		i++;
 
 	new->str = strdup(str);
+
+	if (new->str == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 	new->len = i;
 	new->next = NULL;
 
 	if ((*head) == NULL)
 	{
-		new = (*head);
+		(*head) = new;
 		return (new);
 	}
 	node = (*head);
