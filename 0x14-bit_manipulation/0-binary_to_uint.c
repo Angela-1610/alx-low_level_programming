@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include "main.h"
 
 /**
@@ -20,13 +19,16 @@ unsigned int binary_to_uint(const char *b)
 
 	for (i = 0; b[i] != '\0'; i++)
 	{
-		if (b[i] != 0 || b[i] != 1)
+		if (b[i] != '0' || b[i] != '1')
 			return (0);
+	}
 
-		else if (b[i] == 1)
+	for (i = 0; b[i] != '\0'; i++)
+	{
+		sum <<= 1;
+		if (b[i] == '1')
 		{
-			power = pow(2, i);
-			sum = sum + power;
+			sum = sum + 1;
 		}
 	}
 
