@@ -14,10 +14,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t op, rd, wr;
 	char *arr;
 
-	arr = malloc(sizeof(char) * letters);
-
 	if (filename == NULL)
 		return (0);
+
+	arr = malloc(sizeof(char) * letters);
 
 	if (arr == NULL)
 		return (0);
@@ -26,7 +26,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	rd = read(op, arr, letters);
 	wr = write(STDOUT_FILENO, arr, rd);
 
-	if (op == -1 | rd == -1 | wr == -1)
+	if (op == -1 || rd == -1 || wr == -1)
 		return (0);
 
 	close(op);
